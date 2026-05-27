@@ -17,6 +17,7 @@
       nixd
       stylua
       nixpkgs-fmt
+      jq
     ];
 
     plugins = with pkgs.vimPlugins; [

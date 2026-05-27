@@ -19,6 +19,9 @@ require("lazy").setup({
     { import = "config.plugins.cmp" },
     { import = "config.plugins.dotnet" },
   },
+  rocks = {
+    enabled = false,
+  },
   performance = {
     reset_packpath = false,
     rtp = { reset = false },

@@ -8,6 +8,9 @@ return {
     lazy = false,
     config = function()
       require("easy-dotnet").setup({
+        debugger = {
+          bin_path = "netcoredbg",
+        },
         terminal = function(path, action)
           local cmd = string.format("dotnet %s", action)
           vim.cmd(string.format("split | term %s", cmd))
