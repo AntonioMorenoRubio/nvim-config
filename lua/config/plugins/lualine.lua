@@ -4,7 +4,6 @@ return {
   "nvim-lualine/lualine.nvim",
   dir = nix.pkg("lualine.nvim"),
   lazy = false,
-  dependencies = { "nvim-tree/nvim-web-devicons" },
   opts = {
     options = {
       theme = "rose-pine",

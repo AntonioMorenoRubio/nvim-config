@@ -4,10 +4,6 @@ return {
   "nvim-telescope/telescope.nvim",
   dir = nix.pkg("telescope.nvim"),
   lazy = false,
-  dependencies = {
-    "nvim-lua/plenary.nvim",
-    "nvim-tree/nvim-web-devicons",
-  },
   opts = {
     defaults = {
       prompt_prefix = "  ",

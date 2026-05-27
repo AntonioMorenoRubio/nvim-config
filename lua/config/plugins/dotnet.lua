@@ -6,10 +6,6 @@ return {
     "GustavEikaas/easy-dotnet.nvim",
     dir = nix.pkg("easy-dotnet.nvim"),
     lazy = false,
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim",
-    },
     config = function()
       require("easy-dotnet").setup({
         terminal = function(path, action)
@@ -54,10 +50,6 @@ return {
   {
     "rcarriga/nvim-dap-ui",
     lazy = true,
-    dependencies = {
-      "mfussenegger/nvim-dap",
-      "nvim-neotest/nvim-nio",
-    },
     config = function()
       local dap, dapui = require("dap"), require("dapui")
       dapui.setup()
