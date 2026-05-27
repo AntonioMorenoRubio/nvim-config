@@ -1,19 +1,21 @@
--- lazy.nvim gestionado por Nix: el plugin ya está en el store,
--- solo necesitamos apuntar a él y desactivar la instalación automática.
-
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-
--- Nix pone lazy.nvim en el runtimepath via extraPackages,
--- así que si no existe el path local, lo buscamos en rtp.
-if not vim.loop.fs_stat(lazypath) then
-  for _, rtp in ipairs(vim.api.nvim_list_runtime_paths()) do
-    if rtp:match("lazy.nvim") then
-      lazypath = rtp
-      break
-    end
+-- Encontrar lazy.nvim en el rtp de Nix
+local lazypath
+for _, rtp in ipairs(vim.api.nvim_list_runtime_paths()) do
+  if rtp:match("lazy%.nvim$") then
+    lazypath = rtp
+    break
   end
 end
 vim.opt.rtp:prepend(lazypath)
+
+-- Helper: encuentra el path del store dado el nombre exacto del directorio
+local function pkg(name)
+  for _, rtp in ipairs(vim.api.nvim_list_runtime_paths()) do
+    if rtp:match("/" .. name .. "$") then
+      return rtp
+    end
+  end
+end
 
 require("lazy").setup({
   spec = {
@@ -26,17 +28,13 @@ require("lazy").setup({
     { import = "config.plugins.cmp" },
     { import = "config.plugins.dotnet" },
   },
-  -- Nix gestiona los plugins, lazy NO debe descargar nada
   performance = {
     reset_packpath = false,
-    rtp = {
-      reset = false,
-    },
+    rtp = { reset = false },
   },
-  install = {
-    missing = false,
-  },
-  checker = {
-    enabled = false,
-  },
+  install  = { missing = false },
+  checker  = { enabled = false },
 })
+
+-- Exponer pkg globalmente para que los specs lo usen
+_G.nixpkg = pkg

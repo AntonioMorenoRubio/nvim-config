@@ -1,5 +1,6 @@
 return {
   "nvim-neo-tree/neo-tree.nvim",
+  dir = _G.nixpkg("neo-tree.nvim"),
   lazy = false,
   dependencies = {
     "nvim-lua/plenary.nvim",

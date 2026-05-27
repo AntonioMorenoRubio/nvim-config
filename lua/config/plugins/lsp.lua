@@ -1,5 +1,6 @@
 return {
   "neovim/nvim-lspconfig",
+  dir = _G.nixpkg("nvim-lspconfig"),
   lazy = false,
   config = function()
     local lspconfig = require("lspconfig")

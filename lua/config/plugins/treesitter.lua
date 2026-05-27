@@ -1,5 +1,6 @@
 return {
   "nvim-treesitter/nvim-treesitter",
+  dir = _G.nixpkg("nvim-treesitter"),
   lazy = false,
   -- En NixOS los parsers vienen vía Nix, NO se compilan en runtime
   opts = {

@@ -1,5 +1,6 @@
 return {
   "nvim-telescope/telescope.nvim",
+  dir = _G.nixpkg("telescope.nvim"),
   lazy = false,
   dependencies = {
     "nvim-lua/plenary.nvim",
