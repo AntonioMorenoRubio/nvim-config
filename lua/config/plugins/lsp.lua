@@ -5,35 +5,30 @@ return {
   dir = nix.pkg("nvim-lspconfig"),
   lazy = false,
   config = function()
-    local lspconfig = require("lspconfig")
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-    -- Lua
-    lspconfig.lua_ls.setup({
+    -- Neovim 0.11+: vim.lsp.config en lugar de lspconfig
+    vim.lsp.config("lua_ls", {
       capabilities = capabilities,
       settings = {
         Lua = {
           diagnostics = { globals = { "vim" } },
-          workspace = { checkThirdParty = false },
-          telemetry = { enable = false },
+          workspace   = { checkThirdParty = false },
+          telemetry   = { enable = false },
         },
       },
     })
+    vim.lsp.config("nixd", { capabilities = capabilities })
+    vim.lsp.config("csharp_ls", { capabilities = capabilities })
 
-    -- Nix
-    lspconfig.nixd.setup({ capabilities = capabilities })
+    vim.lsp.enable({ "lua_ls", "nixd", "csharp_ls" })
 
-    -- C# via csharp-ls
-    -- roslyn se configura en dotnet.lua
-    lspconfig.csharp_ls.setup({ capabilities = capabilities })
-
-    -- Diagnósticos visuales
     vim.diagnostic.config({
-      virtual_text = true,
-      signs = true,
-      underline = true,
+      virtual_text     = true,
+      signs            = true,
+      underline        = true,
       update_in_insert = false,
-      severity_sort = true,
+      severity_sort    = true,
     })
   end,
 }
