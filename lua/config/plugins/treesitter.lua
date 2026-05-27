@@ -1,6 +1,8 @@
+local nix = require("config.nix")
+
 return {
   "nvim-treesitter/nvim-treesitter",
-  dir = _G.nixpkg("nvim-treesitter"),
+  dir = nix.pkg("nvim-treesitter"),
   lazy = false,
   -- En NixOS los parsers vienen vía Nix, NO se compilan en runtime
   opts = {

@@ -1,7 +1,9 @@
+local nix = require("config.nix")
+
 return {
   "rose-pine/neovim",
   name = "rose-pine",
-  dir = _G.nixpkg("rose-pine"),
+  dir = nix.pkg("rose-pine"),
   lazy = false,
   priority = 1000,
   opts = {

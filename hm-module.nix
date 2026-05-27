@@ -68,6 +68,7 @@
     "nvim/lua/config/init.lua".source                    = ./lua/config/init.lua;
     "nvim/lua/config/options.lua".source                 = ./lua/config/options.lua;
     "nvim/lua/config/keymaps.lua".source                 = ./lua/config/keymaps.lua;
+    "nvim/lua/config/nix.lua".source                     = ./lua/config/nix.lua;
     "nvim/lua/config/plugins/lazy.lua".source            = ./lua/config/plugins/lazy.lua;
     "nvim/lua/config/plugins/theme.lua".source           = ./lua/config/plugins/theme.lua;
     "nvim/lua/config/plugins/lualine.lua".source         = ./lua/config/plugins/lualine.lua;

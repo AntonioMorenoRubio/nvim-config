@@ -37,4 +37,4 @@ require("lazy").setup({
 })
 
 -- Exponer pkg globalmente para que los specs lo usen
-_G.nixpkg = pkg
+nix.pkg = pkg

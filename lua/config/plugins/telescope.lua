@@ -1,6 +1,8 @@
+local nix = require("config.nix")
+
 return {
   "nvim-telescope/telescope.nvim",
-  dir = _G.nixpkg("telescope.nvim"),
+  dir = nix.pkg("telescope.nvim"),
   lazy = false,
   dependencies = {
     "nvim-lua/plenary.nvim",

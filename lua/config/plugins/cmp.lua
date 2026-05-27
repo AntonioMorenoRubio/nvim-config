@@ -1,6 +1,8 @@
+local nix = require("config.nix")
+
 return {
   "hrsh7th/nvim-cmp",
-  dir = _G.nixpkg("nvim-cmp"),
+  dir = nix.pkg("nvim-cmp"),
   lazy = false,
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",

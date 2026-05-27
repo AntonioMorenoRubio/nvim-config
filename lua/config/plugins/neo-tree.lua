@@ -1,6 +1,8 @@
+local nix = require("config.nix")
+
 return {
   "nvim-neo-tree/neo-tree.nvim",
-  dir = _G.nixpkg("neo-tree.nvim"),
+  dir = nix.pkg("neo-tree.nvim"),
   lazy = false,
   dependencies = {
     "nvim-lua/plenary.nvim",

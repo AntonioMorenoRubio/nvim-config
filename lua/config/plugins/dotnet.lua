@@ -1,8 +1,10 @@
+local nix = require("config.nix")
+
 return {
   -- Scaffolding, run, test, packages
   {
     "GustavEikaas/easy-dotnet.nvim",
-    dir = _G.nixpkg("easy-dotnet.nvim"),
+    dir = nix.pkg("easy-dotnet.nvim"),
     lazy = false,
     dependencies = {
       "nvim-lua/plenary.nvim",
